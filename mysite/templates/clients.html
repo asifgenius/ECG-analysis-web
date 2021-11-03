@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<script>
+    function showName(e){
+    var firstName= document.getElementById("firstname").value;
+    var number = document.getElementById("number").value;
+    var types = document.getElementById("types").value;
+    document.getElementById("show").innerText = firstName+" "+number +" "+types;       
+}
+</script>
+<style>
+h1{
+  color: green ;
+    }
+</style>
+
+  <form>
+    <h1>Create Doctor:</h1>
+    Doctors Name:
+    <input type= "text" id="firstname" name="firstname" > <br> <br>
+    
+    Doctors Number: <input type= "number" id="number" name="number"> <br> <br> 
+    Types: <input type= "text" id="types" name="types" > <br> <br>
+    <input type = "button" onclick="showName()" value="Submit" ><br>
+    <span id="show"></span><br>
+</form>
+{% endblock %}
