@@ -5,13 +5,32 @@
 
 <h1 style="text-align: center;">This is your profile</h1>
 
-<!DOCTYPE html>
-<html>
+
+
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-6">
+      <canvas id="myChart"></canvas>
+    </div>
+
+    <div class="col-md-6">
+      <canvas id="myChart1"></canvas>
+    </div>
+
+  </div>
+
+</div>
+
+
+
+
+
+
+
+
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
-<body>
-
-<canvas id="myChart" style="width:100%;max-width:800px"></canvas>
-
 <script>
 var xValues = ["Heart Rate", "Blood passure", "Oxygen Sutuation", "Resparation Rate", "All Vital Signs"];
 var yValues = [55, 49, 44, 24, 15];
@@ -24,7 +43,26 @@ var barColors = [
 ];
 
 new Chart("myChart", {
-  type: "pie",
+  type: "bar",
+  data: {
+    labels: xValues,
+    
+    datasets: [{
+      backgroundColor: barColors,
+       data: yValues
+    }]
+  },
+  options: {
+    title: {
+      display: true,
+      text: "Heart Rate"
+    }
+  }
+});
+
+
+new Chart("myChart1", {
+  type: "bar",
   data: {
     labels: xValues,
     
@@ -43,11 +81,9 @@ new Chart("myChart", {
 
 
 
-
 </script>
 
-</body>
-</html>
+
 
 
 
