@@ -17,10 +17,11 @@ def login(request):
         print("post psw",psw)
         return redirect('/home')
     
+def dashboard(request):
+    return render(request, 'main.html')
 
 def home(request):
-    
-    return render(request, 'main.html')
+    return render(request, 'homePage.html')
   
 def services(request):
     return render(request, 'services.html')
