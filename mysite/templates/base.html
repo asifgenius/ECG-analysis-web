@@ -18,21 +18,26 @@
 
       top: 0;
       left: 0;
-      background-color: #111;
+      background-color: #052CA3;
       overflow-x: hidden;
       padding-top: 16px;
     }
 
     .sidebar a {
-      padding: 6px 8px 6px 16px;
+      padding: 11px 8px 6px 16px;
       text-decoration: none;
-      font-size: 20px;
-      color: #818181;
+      font-size: 16px;
+      
+      color: #e7dfdf;
       display: block;
     }
 
     .sidebar a:hover {
-      color: #f1f1f1;
+      color: #FFF;
+    }
+
+    hr {
+     border: 1px solid #e7dfdf;
     }
 
     .main {
@@ -56,20 +61,21 @@
 <body>
 
   <div class="sidebar">
-    <a href="/home"><i class="fa fa-fw fa-home"></i>Dashboard</a>
-    <a href="/profile"><i class="fa fa-fw fa-envelope"></i> Profile</a>
-    <a href="/services"><i class="fa fa-fw fa-wrench"></i>Find BPM</a>
-    <a href="/activity"><i class="fa fa-fw fa-envelope"></i> Activity</a>
-    <a href="/weight"><i class="fa fa-fw fa-wrench"></i>Weight</a>
+    <a class="nav-link" href="/home"> <i class="fa fa-fw fa-home"></i><span class="pl-2">Dashboard</span></a>
+    <hr/>
+    <a class="nav-link" href="/profile"><i class="fa fa-fw fa-envelope"></i><span class="pl-2">Profile</span></a>
+    <a class="nav-link" href="/services"><i class="fa fa-fw fa-wrench"></i><span class="pl-2">Find BPM</span></a>
+    <a class="nav-link" href="/activity"><i class="fa fa-fw fa-envelope"></i><span class="pl-2">Activity</span></a>
+    <a class="nav-link" href="/weight"><i class="fa fa-fw fa-wrench"></i><span class="pl-2">Weight</span></a>
 
   
-    <a href="/clients"><i class="fa fa-fw fa-user"></i>Create Doctor</a>
-    <a href="/contact"><i class="fa fa-fw fa-envelope"></i> Find Doctor</a>
+    <a class="nav-link" href="/clients"><i class="fa fa-fw fa-user"></i><span class="pl-2">Create Doctor</span></a>
+    <a class="nav-link" href="/contact"><i class="fa fa-fw fa-envelope"></i><span class="pl-2">Find Doctor</span></a>
     <!-- <a href="/services"><i class="fa fa-fw fa-wrench"></i>Careers</a> -->
     <!-- <a href="/services"><i class="fa fa-fw fa-wrench"></i>Support</a> -->
     <!-- <a href="/services"><i class="fa fa-fw fa-wrench"></i>Events</a> -->
-    <a href="/services"><i class="fa fa-fw fa-wrench"></i>Sleep </a>
-    <a href="/sleep"><i class="fa fa-fw fa-wrench"></i>Appointment</a>
+    <a class="nav-link" href="/services"><i class="fa fa-fw fa-wrench"></i><span class="pl-2">Sleep</span></a>
+    <a class="nav-link" href="/sleep"><i class="fa fa-fw fa-wrench"></i><span class="pl-2">Appointment</span></a>
     
     
   </div>

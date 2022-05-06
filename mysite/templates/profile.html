@@ -3,7 +3,7 @@
 {% block content %}
 
 
-<h1 style="text-align: center;">This is your profile</h1>
+<h4 class="p-4">Profile</h4>
 
 
 
@@ -16,6 +16,17 @@
 
     <div class="col-md-6">
       <canvas id="myChart1"></canvas>
+    </div>
+
+  </div>
+
+  <div class="row mt-4">
+    <div class="col-md-6">
+      <canvas id="resperitionChart"></canvas>
+    </div>
+
+    <div class="col-md-6">
+      <canvas id="oxygenChart"></canvas>
     </div>
 
   </div>
@@ -74,7 +85,43 @@ new Chart("myChart1", {
   options: {
     title: {
       display: true,
-      text: "Heart Rate"
+      text: "Blood Pressure"
+    }
+  }
+});
+
+new Chart("resperitionChart", {
+  type: "bar",
+  data: {
+    labels: xValues,
+    
+    datasets: [{
+      backgroundColor: barColors,
+       data: yValues
+    }]
+  },
+  options: {
+    title: {
+      display: true,
+      text: "Blood Pressure"
+    }
+  }
+});
+
+new Chart("oxygenChart", {
+  type: "bar",
+  data: {
+    labels: xValues,
+    
+    datasets: [{
+      backgroundColor: barColors,
+       data: yValues
+    }]
+  },
+  options: {
+    title: {
+      display: true,
+      text: "Oxygen Saturation"
     }
   }
 });
