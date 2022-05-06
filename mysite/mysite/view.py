@@ -28,3 +28,12 @@ def clients(request):
     return render(request, 'clients.html')
 def contact(request):
     return render(request, 'contact.html')
+
+def profile(request):
+    return render(request, 'profile.html')
+def weight(request):
+    return render(request, 'weight.html')
+def sleep(request):
+    return render(request, 'sleep.html')
+def activity(request):
+    return render(request, 'activity.html')

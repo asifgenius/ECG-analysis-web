@@ -6,9 +6,214 @@
         color: green ;
     }
 </style>
-<h1 class="colour">Introduction</h1>
-<h2>I am Asif Islam.I make a project who's name  ECG analysis.This app will show BPM by sensor by using apps and Doctor can see BPM result by using ECG website. </h2>
-<h1 class="colour">Motivation</h1>
-  <h2>In our society,many people have a resting heart rate and then do not know how to solve this problem.So I want to solve this problem by using an app and ECG website.</h2>
+<h1 class="colour"> <u>Dashboard</u></h1>
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+
+<style>
+  .border-style
+  {
+   width: 18rem;
+    height: 20px;
+    border-radius: 20px;
+    background-color: rgb(240, 240, 240);
+  }
+  .doctor-name-style
+  {
+    font: bold ;
+    
+  }
+  .doctor-type
+  {
+    font-size: 15px;
+  }
+  label {
+    display: block;
+    font: 1rem 'Fira Sans', sans-serif;
+}
+
+input,
+label {
+    margin: .4rem 0;
+}
+
+</style>
+
+<div class="container " style="background-color: rgb(245, 245, 245);">
+  <div class="row ">
+      <div class="col-mb-4 pl-4">
+        <div class="card" style="width: 24rem;">
+          <!-- <img class="card-img-top"
+                src="https://www.italiandoctors.co.uk/images/italiandoctor/slider/adobestock_338827188_preview.jpeg"
+                alt="Card image cap"> -->
+            <div class="card-body " >
+                <h5 class="card-title">Appointment</h5>
+                <h4 class="card-text">Doctor Name</h4>
+                <p class="card-text">Date           Time</p>
+                <label for="start"></label>
+
+<input type="date" id="start" name="trip-start"
+       value="2021-08-01"
+       min="2021-01-01" max="2040-12-31">
+
+              
+                      <p class="card-text">Cancel Appointment          <span style="margin-left: 100px;"></span>             Reschedule </p>
+                
+                <a href="/home" class="btn btn-primary">Details</a>
+            </div>
+        </div>
+
+        
+      </div>
+
+      
+            <div class="col-mb-4 pl-4">
+              <div class="card" style="width: 38rem;">
+                <!-- <img class="card-img-top"
+                      src="https://www.italiandoctors.co.uk/images/italiandoctor/slider/adobestock_338827188_preview.jpeg"
+                      alt="Card image cap"> -->
+                  <div class="card-body">
+                      <h5 class="card-title">Recent Activity</h5>
+                      <h4 class="card-text">Date and Time</h4>
+                    <h5 class="doctor-name-style">Dr.Shoikot Maruf <span class="doctor-type"> Cardiologists</span></h5>
+                   
+                    <h5 class="doctor-name-style">Dr.Asif Islam <span class="doctor-type">Neurologist</span></h5>
+                 
+                    <h5 class="doctor-name-style">Dr.Emon Hassan <span class="doctor-type">Health</span></h5>
+                
+                      <a href="/home" class="btn btn-primary">Details</a>
+                  </div>
+              </div>
+            </div>
+</div>
+
+
+<div class="card" style="width: 40rem; margin-left: 280px; margin-top: 20px;">
+  <!-- <img class="card-img-top"
+        src="https://www.italiandoctors.co.uk/images/italiandoctor/slider/adobestock_338827188_preview.jpeg"
+        alt="Card image cap"> -->
+    <div class="card-body " style="text-align: center; ">
+        <h5 class="card-title">Payment Activity</h5>
+        <h4 class="card-text">Price</h4>
+        <p class="card-text">Date           Time</p>
+      
+    </div>
+</div>
+
+
+
+
+
+
+
+
+  <h1 style="text-align: center; margin-top: 20px;">Doctor Portal</h1>
+  <hr style="background-color: black; width: 200px;">
+  <div class="container">
+    <div class="row ">
+        <div class="col-mb-4 pl-4">
+          <div class="card" style="width: 18rem;">
+            <!-- <img class="card-img-top"
+                  src="https://www.italiandoctors.co.uk/images/italiandoctor/slider/adobestock_338827188_preview.jpeg"
+                  alt="Card image cap"> -->
+              <div class="card-body">
+                  <h5 class="card-title">Heart Rate</h5>
+                  <h4 class="card-text">Date and Time</h4>
+                  <p class="card-text">Your Heart Rate is 98</p>
+                  <a href="/home" class="btn btn-primary">Details</a>
+              </div>
+          </div>
+        </div>
+      
+        <div class="col-mb-4 pl-4 ">
+            <div class="card" style="width: 18rem;">
+              <!-- <img class="card-img-top"
+                    src="https://www.italiandoctors.co.uk/images/italiandoctor/slider/adobestock_338827188_preview.jpeg"
+                    alt="Card image cap"> -->
+                <div class="card-body">
+                    <h5 class="card-title">Blood Pressure</h5>
+                    <h4 class="card-text">Date and Time</h4>
+                    <p class="card-text">Your Blood Pressure is 63/102</p>
+                    <a href="/home" class="btn btn-primary">Details</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-mb-4 pl-4">
+            <div class="card" style="width: 18rem;">
+                <!-- <img class="card-img-top"
+                    src="https://www.tidalhealth.org/sites/default/files/site_media/2021-01/doctor.jpg"
+                    alt="Card image cap"> -->
+                <div class="card-body">
+                    <h5 class="card-title">Oxygen Satuation</h5>
+                    <h4 class="card-text"> Date and Time</h4>
+                    <p class="card-text"> Your Oxygen Satuation is 15</p>
+                    <a href="/home" class="btn btn-primary">Details</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-mb-4 pl-4">
+          <div class="card" style="width: 18rem; margin-top: 20px;">
+              <!-- <img class="card-img-top"
+                  src="https://www.tidalhealth.org/sites/default/files/site_media/2021-01/doctor.jpg"
+                  alt="Card image cap"> -->
+              <div class="card-body">
+                  <h5 class="card-title">Resparation Rate</h5>
+                  <h4 class="card-text"> Date and Time</h4>
+                  <p class="card-text"> Your Resparation Rate is 99</p>
+                  <a href="/home" class="btn btn-primary">Details</a>
+              </div>
+          </div>
+      </div>
+      <div class="col-mb-4 pl-4" style="margin-bottom: 340px;">
+        <div class="card" style="width: 18rem; margin-top: 20px;">
+            <!-- <img class="card-img-top"
+                src="https://www.tidalhealth.org/sites/default/files/site_media/2021-01/doctor.jpg"
+                alt="Card image cap"> -->
+            <div class="card-body">
+                <h5 class="card-title">All Vital Signs</h5>
+                <h4 class="card-text"> Date and Time</h4>
+                <p class="card-text"> Your Heart Rate is 98,  Blood Pressure is 63/102, Oxygen Satuation is 15, Resparation Rate is 99</p>
+                <a href="/home" class="btn btn-primary" >Details</a>
+            </div>
+        </div>
+    </div>
+    </div>
+   
+</div>
+</body>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 {% endblock %}

@@ -7,7 +7,8 @@
     var firstName= document.getElementById("firstname").value;
     var number = document.getElementById("number").value;
     var types = document.getElementById("types").value;
-    document.getElementById("show").innerText = firstName+" "+number +" "+types;       
+    document.getElementById("show").innerText = firstName+" "+number +" "+types;   
+        
 }
 </script>
 <style>
@@ -15,15 +16,70 @@ h1{
   color: green ;
     }
 </style>
-
-  <form>
-    <h1>Create Doctor:</h1>
+<h1>Create Doctor:</h1>
+  <form style="margin-left: 300px;">
+  
     Doctors Name:
-    <input type= "text" id="firstname" name="firstname" > <br> <br>
+    <input type= "text" style="margin-left: 40px;" id="firstname" name="firstname" > <br> <br>
     
-    Doctors Number: <input type= "number" id="number" name="number"> <br> <br> 
-    Types: <input type= "text" id="types" name="types" > <br> <br>
-    <input type = "button" onclick="showName()" value="Submit" ><br>
+    Doctors Number: <input style="margin-left: 30px;" type= "number" id="number" name="number"> <br> <br> 
+    Types: <input style="margin-left: 105px;" type= "text" id="types" name="types" > <br> <br>
+    <input style="margin-left: 140px;" type = "button" onclick="showName()" class="btn btn-primary" value="Submit" ><br>
     <span id="show"></span><br>
 </form>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 {% endblock %}
