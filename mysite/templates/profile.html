@@ -35,96 +35,183 @@
 
 
 
-
-
-
-
-
-
+<script src="https://www.gstatic.com/firebasejs/9.6.11/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.6.11/firebase-firestore-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.6.11/firebase-auth-compat.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
 <script>
-var xValues = ["Heart Rate", "Blood passure", "Oxygen Sutuation", "Resparation Rate", "All Vital Signs"];
-var yValues = [55, 49, 44, 24, 15];
-var barColors = [
-  "#b91d47",
-  "#e8c3b",
-  "#1e7",
-  "#e8c3b9",
-  "#1e7145"
-];
+  const firebaseConfig = {
+    // Add your firebase config here
+    apiKey: "AIzaSyAk7ohrCjivDJ3qaWGdzkVLzXTWWsyfiZ8",
+    authDomain: "blood-analysis-2d541.firebaseapp.com",
+    projectId: "blood-analysis-2d541",
+    storageBucket: "blood-analysis-2d541.appspot.com",
+    messagingSenderId: "623090934175",
+    appId: "1:623090934175:web:f916859a548a8278c89daa",
+    measurementId: "G-G7EB99ZXKE"
 
-new Chart("myChart", {
-  type: "bar",
-  data: {
-    labels: xValues,
-    
-    datasets: [{
-      backgroundColor: barColors,
-       data: yValues
-    }]
-  },
-  options: {
-    title: {
-      display: true,
-      text: "Heart Rate"
-    }
+  };
+
+  const firebaseApp = firebase.initializeApp(firebaseConfig);
+  const db = firebaseApp.firestore();
+  const auth = firebaseApp.auth();
+
+  function addData() {
+    db.collection("newsfeed").add({
+      text: document.getElementById("postedFeed").value,
+      userId: "me",
+      time: new Date().getTime()
+    })
+      .then((docRef) => {
+        console.log("Document written with ID: ", docRef.id);
+        document.getElementById("postedFeed").value = "";
+
+      })
+      .catch((error) => {
+        console.error("Error adding document: ", error);
+      });
   }
-});
+
+  function fetchData() {
+
+    let allReportList = [];
+
+    let heartRateList = [];
+    let heartDateList = [];
+
+    let bloodPressureRateList = [];
+    let bloodPressureDateList = [];
+
+    let respirationRateList = [];
+    let respirationDateList = [];
+
+    let oxygenRateList = [];
+    let oxygenDateList = [];
+
+    db.collection("all-report").where("user", "==", "asif").orderBy("time", "desc")
+      .onSnapshot((querySnapshot) => {
+
+        querySnapshot.forEach((doc) => {
+          if (doc.data()?.type === "heart") {
+            heartRateList.push(doc.data()?.rate);
+            heartDateList.push(doc.data()?.date);
+          }
+          if (doc.data()?.type === "bloodPressure") {
+
+            bloodPressureRateList.push(doc.data()?.rate);
+            bloodPressureDateList.push(doc.data()?.date);
+          }
+          if (doc.data()?.type === "respirationRate") {
+
+            respirationRateList.push(doc.data()?.rate);
+            respirationDateList.push(doc.data()?.date);
+          }
+          if (doc.data()?.type === "oxygenRate") {
+
+            oxygenRateList.push(doc.data()?.rate);
+            oxygenDateList.push(doc.data()?.date);
+          }
+
+          console.log(`${doc.id} => ${doc.data().rate}`);
+        });
+
+        var xValues = ["Heart Rate", "Blood passure", "Oxygen Sutuation", "Resparation Rate", "All Vital Signs"];
+        var yValues = [55, 49, 44, 24, 15];
+        var barColors = [
+          "#b91d47",
+          "#e8c3b",
+          "#1e7",
+          "#e8c3b9",
+          "#1e7145"
+        ];
+
+        new Chart("myChart", {
+          type: "bar",
+          data: {
+            labels: heartDateList,
+
+            datasets: [{
+              backgroundColor: barColors,
+              data: heartRateList
+            }]
+          },
+          options: {
+            title: {
+              display: true,
+              text: "Heart Rate"
+            }
+          }
+        });
 
 
-new Chart("myChart1", {
-  type: "bar",
-  data: {
-    labels: xValues,
-    
-    datasets: [{
-      backgroundColor: barColors,
-       data: yValues
-    }]
-  },
-  options: {
-    title: {
-      display: true,
-      text: "Blood Pressure"
-    }
+        new Chart("myChart1", {
+          type: "bar",
+          data: {
+            labels: bloodPressureDateList,
+
+            datasets: [{
+              backgroundColor: barColors,
+              data: bloodPressureRateList
+            }]
+          },
+          options: {
+            title: {
+              display: true,
+              text: "Blood Pressure"
+            }
+          }
+        });
+
+        new Chart("resperitionChart", {
+          type: "bar",
+          data: {
+            labels: respirationDateList,
+
+            datasets: [{
+              backgroundColor: barColors,
+              data: respirationRateList
+            }]
+          },
+          options: {
+            title: {
+              display: true,
+              text: "Respiration Rate"
+            }
+          }
+        });
+
+        new Chart("oxygenChart", {
+          type: "bar",
+          data: {
+            labels: oxygenDateList,
+
+            datasets: [{
+              backgroundColor: barColors,
+              data: oxygenRateList
+            }]
+          },
+          options: {
+            title: {
+              display: true,
+              text: "Oxygen Saturation"
+            }
+          }
+        });
+        // Read data from firestore
+      });
+
   }
-});
+  fetchData();
 
-new Chart("resperitionChart", {
-  type: "bar",
-  data: {
-    labels: xValues,
-    
-    datasets: [{
-      backgroundColor: barColors,
-       data: yValues
-    }]
-  },
-  options: {
-    title: {
-      display: true,
-      text: "Blood Pressure"
-    }
-  }
-});
+</script>
 
-new Chart("oxygenChart", {
-  type: "bar",
-  data: {
-    labels: xValues,
-    
-    datasets: [{
-      backgroundColor: barColors,
-       data: yValues
-    }]
-  },
-  options: {
-    title: {
-      display: true,
-      text: "Oxygen Saturation"
-    }
-  }
-});
+
+
+
+
+
+<script>
+
 
 
 
